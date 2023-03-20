@@ -1,0 +1,166 @@
+<html>
+    <head>
+        <title>
+            Video Storage Calculator
+        </title>
+        <style>
+            .main{
+                display:flex;
+                background-color: #e6e7e8;
+                height:600px;
+                font-size:20px;
+            }
+            .col1{
+                background-color:white;
+                width:50%;
+                padding:30px;
+                margin:50px;
+                border:1px solid white;
+              border-radius: 5px;
+            }
+            .col2{
+                width:50%;
+/*                  margin:50px 0px;*/
+                border:1px solid green;
+                text-align: center;
+            }
+            input[type="range"]{
+                width:520px;
+                
+            }
+            .learnmore{
+                text-align: center;
+                width:150px;
+                height:40px;
+                color:white;
+                background-color:forestgreen;
+                border: 1px solid green;
+            }
+          .total
+            {
+                width:400px;
+                height:80px;
+                border:1px solid white;
+                border-radius: 5px;
+            }
+            .ranger{
+                width:50px;
+            }
+            .compression{       
+                display:flex;
+                background-color: forestgreen;
+                width:220px;
+                height:30px;
+            }
+            .compress{
+                width:70px;
+                height:30px;
+                background-color:#e6e7e8;
+                margin-right:4px;
+            }
+            .total{
+                margin-left:100px;
+                margin-right:0px;
+                width:400px;
+                height:60px;
+                background-color: white;
+            }
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+     
+}
+
+.slider::-webkit-slider-runnable-track {
+  background-color: transparent;
+  
+  /* Set a linear gradient for the left side */
+  background-image: linear-gradient(to right, red 0%, red 50%, transparent 50%);
+}
+
+.slider::-moz-range-track {
+  /* Set the color of the track */
+/*  background: linear-gradient(to right, red, yellow, green);*/
+}
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
+        </style>
+    </head>
+    <body>
+        <form>
+            <div class="main">
+                <div class="col1">
+                    <b>Number of Cameras</b> 
+                    <input style ="background-color: aqua" type="range"  min="1" max="25" id="numcamera" class="slider">
+                    <input type="text" class="ranger">
+                    <b>Frames per second</b>
+                    <input type="range"  min="1" max="30" id="framesecond" class="slider" value="">
+                    <input type="text" class="ranger">
+                    <b>Hours per day</b>
+                    <input type="range" min="1" max="24" id="hourday" class="slider">
+                    <input type="text" class="ranger">
+                    <b>Numbers of Days Stored</b>
+                    <input type="range"  min="1" max="31" id="numday" class="slider">
+                    <input type="text" class="ranger">
+                    <b>Resolution</b><img src="question.jpg" height="20px" width="20px" >
+                    <input type="range"  min="1" max="6" id="resolution" class="slider">
+                    <input type="text" class="ranger">
+                    <b>Video Quality</b><img src="question.jpg" height="20px" width="20px">
+                    <input type="range"  min="1" max="3" id="videoquality" class="slider">
+                    <input type="text" class="ranger">
+                    <b>Compression Type</b>
+                    <div class="compression">
+                        <div class="compress">MJEPG</div>
+                        <div class="compress">H.264</div>
+                        <div class="compress">H.265</div>
+                    </div>
+                </div>
+                <div class="col2">
+                    <h1>Required Storage Space</h1>
+                    <h1><div class="total"></div>*</h1>
+                    <img src="skyhawk-logo-drk.png"><br/>
+                    <a href="#"><button class="learnmore">LEARN MORE</button></a>
+                </div>
+            </div>
+         </form>
+        <script type="text/javascript">
+            var value1=document.getElementById("numcamera");
+            var value2=document.getElementById("framesecond");
+            var value3=document.getElementById("hourday");
+            var value4=document.getElementById("numday");
+            var value5=document.getElementById("resolution");
+             var value6=document.getElementById("videoquality");
+             var value7=document.getElementsByClassName("compress");
+        </script>
+    </body>
+</html>
