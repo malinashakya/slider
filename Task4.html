@@ -121,7 +121,28 @@
             {
                 width:20px;
             }
-            
+            #resovalue{
+                width: 50px;
+                height: 20px;
+                display: inline-block;
+                border:1px solid #e6e7e8; 
+                background-color:#e6e7e8;
+                overflow:hidden;
+                color:gray;
+            }
+            #videoqualityvalue{
+                 width: 50px;
+                height: 20px;
+                display: inline-block;
+                border:1px solid #e6e7e8;
+                background-color:#e6e7e8;
+                overflow:hidden;
+                color:gray;
+            }
+            input[type="text"]
+            {
+                color:gray;
+            }
         </style>
     </head>
     <body>
@@ -141,8 +162,8 @@
                     <input type="range"  min="1" max="31" id="numday" class="slider">
                      <input type="text" class="ranger">
                      <b>Resolution</b><img src="question.jpg" onclick="message1()" height="20px" width="20px" >
-                     <input type="range" id="myRange" name="myRange" min="1" max="6" step="1" class="slider" onchange="updateTextInput(this.value);">
-                    <input type="text" id="textInput" value="">
+                     <input type="range" id="myRange" name="myRange" min="1" max="6" step="1" class="slider" onchange="updateValue()">
+                      <span id="resovalue"></span>
                      <datalist>
                       <option value="1">960</option>
                       <option value="2">720p</option>
@@ -162,8 +183,8 @@
                         
                      </div>
                     <b>Video Quality</b><img src="question.jpg" onclick="message2()" height="20px" width="20px">
-                    <input type="range"  min="1" max="3" id="videoquality" class="slider" onchange="updateTextInput2(this.value);">
-                    <input type="text" id="textInput2" value="">
+                    <input type="range"  min="1" max="3" id="videoquality" class="slider" onchange="updateValue2()">
+                   <span id="videoqualityvalue"></span>
                        <datalist>
                       <option value="1">Low</option>
                       <option value="2">Medium</option>
@@ -216,6 +237,7 @@
       });
     });
           //For Compression Type
+          //click garda color change garne
           const divs = document.querySelectorAll(".compress");
 let selectedDiv = null;
 
@@ -236,12 +258,71 @@ divs.forEach((div) => {
                   function message2() {
   alert("Regardless of the codec used (MJPEG,JPEG2000,MPEG-4,H.264, all IP cameras offer quality levels, often called the 'compression' or 'quantization'. Video quality is determined  based on bandwidth and compression settings. Lower bandwidth and greater compression equates to lower video quality )");
 }
-          function updateTextInput(val) {
-          document.getElementById('textInput').value=val; 
+          //Resolution Ko lagi
+         function updateValue() {
+  var rangeValue = document.getElementById("myRange").value;
+    if(rangeValue==1)
+        {
+            var reso="960";          
         }
-           function updateTextInput2(val) {
-          document.getElementById('textInput2').value=val; 
+    else if(rangeValue==2)
+        {
+            var reso="720p";
         }
+    else if(rangeValue==3)
+        {
+           var reso="1080p";
+        }
+             else if(rangeValue==4)
+        {
+           var reso="3MP";
+        }
+                 else if(rangeValue==5)
+        {
+            var reso="5MP";
+        }
+                  else
+        {
+          var reso="8MP/4K";
+        }
+             document.getElementById("resovalue").innerHTML=reso;
+  
+}
+                    //Video Quality Ko lagi
+         function updateValue2() {
+  var rangeValuee = document.getElementById("videoquality").value;
+    if(rangeValuee==1)
+        {
+            var vquality="Low";          
+        }
+    else if(rangeValuee==2)
+        {
+            var vquality="Medium";
+        }
+                  else
+        {
+          var vquality="High";
+        }
+             document.getElementById("videoqualityvalue").innerHTML=vquality;
+  
+}
+//          //for total calculation
+//          function totalcalculation()
+//          {
+//              var numcamera=document.getElementById("numcamera").value;
+//              var framesecond=document.getElementById("framesecond").value;
+//              var hourperday=document.getElementById("hourday").value;
+//              var numberday=document.getElementById("numday").value;
+//              var resolution=document.getElementById("myRange").value;
+//              if(resolution==1)
+//                  {
+//                      var res=960;
+//                  }
+//              else if(resolution==2)
+//                  {
+//                      var res=720;
+//                  }
+//          }
         </script>
     </body>
 </html>
